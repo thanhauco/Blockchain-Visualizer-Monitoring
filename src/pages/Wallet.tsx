@@ -84,15 +84,41 @@ const Wallet = () => {
                </div>
             </div>
             
-            {/* Interaction Visualizer */}
-            <div className="bg-white dark:bg-surface-dark border border-slate-200 dark:border-border-dark rounded-xl p-6">
-              <h3 className="font-bold text-lg mb-4">Interaction Visualizer</h3>
-              <div className="h-64 flex items-center justify-center border-2 border-dashed border-slate-200 dark:border-border-dark rounded-xl bg-slate-50/50 dark:bg-white/2">
-                <div className="flex flex-col items-center gap-2 text-slate-400">
-                  <span className="material-symbols-outlined text-4xl">hub</span>
-                  <p className="text-sm italic">Chord Diagram Placeholder</p>
-                </div>
-              </div>
+            {/* Recent Transactions */}
+            <div className="bg-white dark:bg-surface-dark border border-slate-200 dark:border-border-dark rounded-xl overflow-hidden">
+               <div className="p-4 border-b border-slate-200 dark:border-border-dark bg-slate-50 dark:bg-white/5 flex items-center justify-between">
+                 <h3 className="font-bold text-sm">Recent Transactions</h3>
+                 <button className="text-[10px] font-bold text-primary uppercase">View More</button>
+               </div>
+               <div className="overflow-x-auto">
+                 <table className="w-full text-left text-xs whitespace-nowrap">
+                    <thead className="bg-slate-50 dark:bg-white/5 text-slate-500 text-[10px] uppercase font-bold tracking-wider">
+                      <tr>
+                        <th className="px-4 py-3">Tx Hash</th>
+                        <th className="px-4 py-3">Time</th>
+                        <th className="px-4 py-3">Type</th>
+                        <th className="px-4 py-3">Value</th>
+                        <th className="px-4 py-3 text-right">Fee</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-100 dark:divide-border-dark">
+                      {[
+                        { hash: '0x7d...3a12', time: '12m ago', type: 'Received', value: '5.2 ETH', color: 'text-emerald-500', fee: '0.001' },
+                        { hash: '0x3b...99c1', time: '45m ago', type: 'Sent', value: '1.4 ETH', color: 'text-orange-500', fee: '0.002' },
+                        { hash: '0x9a...22d4', time: '2h ago', type: 'Swap', value: '420 USDT', color: 'text-blue-500', fee: '0.005' },
+                        { hash: '0x1c...55a2', time: '5h ago', type: 'Received', value: '0.8 ETH', color: 'text-emerald-500', fee: '0.001' },
+                      ].map((tx, idx) => (
+                        <tr key={idx} className="hover:bg-slate-50 dark:hover:bg-white/2 transition-colors cursor-pointer group">
+                          <td className="px-4 py-4 font-mono text-primary">{tx.hash}</td>
+                          <td className="px-4 py-4 text-slate-500">{tx.time}</td>
+                          <td className="px-4 py-4 font-bold"><span className={tx.color}>{tx.type}</span></td>
+                          <td className="px-4 py-4 font-bold">{tx.value}</td>
+                          <td className="px-4 py-4 text-right text-slate-500">{tx.fee}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                 </table>
+               </div>
             </div>
           </div>
 
@@ -125,6 +151,55 @@ const Wallet = () => {
                   <button className="text-xs font-bold text-primary hover:underline">View All Assets</button>
                </div>
             </div>
+
+            {/* Top Counterparties */}
+            <div className="bg-white dark:bg-surface-dark border border-slate-200 dark:border-border-dark rounded-xl overflow-hidden">
+               <div className="p-4 border-b border-slate-200 dark:border-border-dark bg-slate-50 dark:bg-white/5">
+                 <h3 className="font-bold text-sm">Top Counterparties</h3>
+               </div>
+               <div className="flex flex-col p-4 gap-4">
+                  {[
+                    { name: 'Uniswap V3', address: '0x8b31...9d21', txs: 42, volume: '154.2 ETH', color: 'bg-pink-500' },
+                    { name: 'Aave V3', address: '0x55d3...32a1', txs: 28, volume: '82.5 ETH', color: 'bg-purple-500' },
+                    { name: 'OpenSea', address: '0x7be8...14f2', txs: 15, volume: '12.4 ETH', color: 'bg-blue-500' },
+                  ].map(cp => (
+                    <div key={cp.name} className="flex items-center gap-3 group cursor-pointer">
+                      <div className={`size-8 rounded-lg ${cp.color} flex items-center justify-center text-white shrink-0`}>
+                        <span className="material-symbols-outlined text-sm">hub</span>
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex justify-between items-center mb-0.5">
+                          <p className="text-xs font-bold truncate group-hover:text-primary transition-colors">{cp.name}</p>
+                          <p className="text-[10px] font-bold">{cp.volume}</p>
+                        </div>
+                        <div className="flex justify-between items-center text-[10px] text-slate-500">
+                          <p className="font-mono truncate">{cp.address}</p>
+                          <p>{cp.txs} Txs</p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+               </div>
+            </div>
+            
+            {/* NFT Gallery Preview */}
+            <div className="bg-white dark:bg-surface-dark border border-slate-200 dark:border-border-dark rounded-xl overflow-hidden">
+               <div className="p-4 border-b border-slate-200 dark:border-border-dark bg-slate-50 dark:bg-white/5 flex items-center justify-between">
+                 <h3 className="font-bold text-sm">NFT Preview</h3>
+                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-slate-200 dark:bg-gray-700">12</span>
+               </div>
+               <div className="p-3 grid grid-cols-3 gap-2">
+                  {[1, 2, 3].map(i => (
+                    <div key={i} className="aspect-square rounded-lg bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-border-dark overflow-hidden group cursor-pointer">
+                       <img 
+                        src={`https://picsum.photos/seed/${i + 10}/200`} 
+                        alt="NFT Preview" 
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform" 
+                       />
+                    </div>
+                  ))}
+               </div>
+            </div>
           </div>
         </div>
       </div>
@@ -133,3 +208,4 @@ const Wallet = () => {
 };
 
 export default Wallet;
+
