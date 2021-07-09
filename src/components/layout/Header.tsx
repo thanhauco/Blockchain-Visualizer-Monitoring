@@ -12,6 +12,8 @@ const Header = ({ title = "Overview" }: { title?: string }) => {
             type="text" 
             className="block w-full pl-10 pr-3 py-2 border-none rounded-lg bg-slate-100 dark:bg-border-dark/50 text-sm placeholder-slate-500 dark:text-white focus:outline-none focus:ring-1 focus:ring-primary transition-all" 
             placeholder="Search block, tx hash, or address..." 
+            // BUG: Alerts but doesn't prevent default or clear or anything useful
+            onKeyDown={(e) => { if(e.key === 'Enter') alert('Search: ' + e.currentTarget.value) }}
           />
         </div>
       </div>
