@@ -26,8 +26,7 @@ const StatCard = ({ label, value, icon, trend, iconColor = "text-emerald-500", i
       </div>
       {trend && (
         <div className="flex items-center gap-2 text-xs font-medium">
-          {/* BUG: Hardcoded emerald-500 instead of using trend.isUp condition properly in some parts */}
-          <span className="text-emerald-500 flex items-center">
+          <span className={`${trend.isUp ? 'text-emerald-500' : 'text-orange-500'} flex items-center`}>
             <span className="material-symbols-outlined text-[14px]">
               {trend.isUp ? 'arrow_upward' : 'arrow_downward'}
             </span>

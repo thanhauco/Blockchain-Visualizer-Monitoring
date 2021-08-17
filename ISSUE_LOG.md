@@ -2,16 +2,16 @@
 
 ## Bugs
 
-| ID     | Description                                                            | Severity | Status |
-| ------ | ---------------------------------------------------------------------- | -------- | ------ |
-| BUG-01 | Sidebar active state logic highlights multiple items when on root path | Medium   | Open   |
-| BUG-02 | Header search input does not submit on Enter key                       | Low      | Open   |
-| BUG-03 | StatCard trend color inconsistent for downward movements               | Low      | Open   |
-| BUG-04 | Blocks ribbon overflows on mobile viewports                            | Medium   | Open   |
-| BUG-05 | Network topology map background tile clipping on 4K screens            | Low      | Open   |
-| BUG-06 | Wallet address copy button lacks visual feedback                       | Low      | Open   |
-| BUG-07 | Settings theme selector does not persist selection                     | Low      | Open   |
-| BUG-08 | Dashboard charts missing responsive resize listener                    | Medium   | Open   |
+| ID     | Description                                                            | Severity | Status   |
+| ------ | ---------------------------------------------------------------------- | -------- | -------- |
+| BUG-01 | Sidebar active state logic highlights multiple items when on root path | Medium   | Resolved |
+| BUG-02 | Header search input does not submit on Enter key                       | Low      | Resolved |
+| BUG-03 | StatCard trend color inconsistent for downward movements               | Low      | Resolved |
+| BUG-04 | Blocks ribbon overflows on mobile viewports                            | Medium   | Open     |
+| BUG-05 | Network topology map background tile clipping on 4K screens            | Low      | Open     |
+| BUG-06 | Wallet address copy button lacks visual feedback                       | Low      | Open     |
+| BUG-07 | Settings theme selector does not persist selection                     | Low      | Open     |
+| BUG-08 | Dashboard charts missing responsive resize listener                    | Medium   | Open     |
 
 ## Feature Requests
 
