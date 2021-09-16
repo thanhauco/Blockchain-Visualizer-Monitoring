@@ -16,6 +16,32 @@ ChainSight is a high-performance blockchain dashboard and monitoring application
 - **Build Tool**: Vite
 - **Icons**: Material Symbols
 
+## Application Preview
+
+### Dashboard
+
+![Dashboard](screenshots/dashboard.png)
+
+### Network Topology
+
+![Network](screenshots/network.png)
+
+### Block Explorer
+
+![Blocks](screenshots/blocks.png)
+
+### Transaction Details
+
+![Transactions](screenshots/transactions.png)
+
+### Wallet Monitor
+
+![Wallet](screenshots/wallet.png)
+
+### Settings
+
+![Settings](screenshots/settings.png)
+
 ## Getting Started
 
 ```bash
