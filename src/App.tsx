@@ -1,10 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
-// Layouts (to be created)
-// import Layout from './components/layout/Layout';
+import Dashboard from './pages/Dashboard';
 
 // Pages (placeholders for now)
-const Dashboard = () => <div>Dashboard</div>;
 const Blocks = () => <div>Blocks</div>;
 const Transactions = () => <div>Transactions</div>;
 const Wallet = () => <div>Wallet</div>;
